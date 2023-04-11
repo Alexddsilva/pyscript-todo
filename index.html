@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Todo App</title>
+
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+
+    <body>
+        <py-script>
+            from js import console
+            from pyscript import Element
+
+            def onClickEl(el):
+                el.target.style.textDecoration = "line-through"
+
+            def criaElementoLista():
+                my_input = Element("todo-input")
+
+                if(len(my_input.element.value) <= 2):
+                    return None
+
+                lista = Element("lista")
+
+                new_el = lista.write(my_input.element.value, append=True)
+                
+                if(len(lista.element.children) > 0):
+                    selectLast = lista.element.children[(len(lista.element.children) -1)]
+
+                    selectLast.onclick = onClickEl
+                    selectLast.style.cursor = "pointer"
+                
+                my_input.element.value = ""
+
+        </py-script>
+
+        <section id="py-section" class="central-content">
+            <h1 class="py-title"> TO DO LIST </h1>
+
+            <div class="py-box"> 
+                <div class="central-content">
+                    <input id="todo-input" />
+
+                    <button py-click="criaElementoLista()"  class="py-button"> Enviar </button>
+                </div>
+            </div>
+            
+           <ul id="lista"></ul>
+        </section>
+    </body>
+</html>
