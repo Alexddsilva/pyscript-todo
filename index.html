@@ -2,9 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-
         <title>Todo App</title>
-
         <link rel="icon" type="image/png" href="favicon.png" />
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
@@ -35,17 +33,16 @@
                     selectLast.style.cursor = "pointer"
                 
                 my_input.element.value = ""
-
         </py-script>
 
         <section id="py-section" class="central-content">
             <h1 class="py-title"> TO DO LIST </h1>
 
             <div class="py-box"> 
-                <div class="central-content">
-                    <input id="todo-input" />
+                <div class="central-content py-box">
+                    <input style="border: 1px solid grey; border-radius: 4px" id="todo-input" />
 
-                    <button py-click="criaElementoLista()"  class="py-button"> Enviar </button>
+                    <button style="margin-left: 15px" py-click="criaElementoLista()"  class="py-button"> Enviar </button>
                 </div>
             </div>
             
